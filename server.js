@@ -2,6 +2,7 @@ import express from 'express';
 import sassMiddleware from 'node-sass-middleware';
 import path from 'path';
 
+import serverRender from './serverRender';
 import config from './config';
 import router from './api';
 
@@ -14,8 +15,15 @@ server.use(sassMiddleware({
   dest: path.join(__dirname, 'public')
 }));
 
+
 server.get('/', (req, res) => {
-  res.render('index');
+  serverRender()
+    .then(content =>
+      res.render('index', {
+        content
+      })
+    )
+    .catch(error => console.error(error))
 });
 
 server.get('/about.html', (req, res) => {

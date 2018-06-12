@@ -1,7 +1,7 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import axios from 'axios';
 
-import data from '../testData';
 import Header from './Header';
 import ContestPreview from './ContestPreview';
 
@@ -11,7 +11,7 @@ class App extends React.Component {
 
     this.state = {
       pageHeader: 'Contest preview',
-      contests: [],
+      contests: this.props.initialContests,
     };
   }
 
@@ -30,5 +30,9 @@ class App extends React.Component {
     );
   }
 }
+
+App.propTypes = {
+  contests: PropTypes.array,
+};
 
 export default App;
