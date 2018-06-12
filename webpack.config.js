@@ -17,6 +17,15 @@ module.exports = {
             plugins: ["transform-class-properties", "transform-object-assign"]
           }
         }
+      },
+      {
+        test: /\.json$/,
+        exclude: /node_modules/,
+        type: "javascript/auto",
+        use: {
+          loader: "json-loader",
+        }
       }
-  ]}
+    ]
+  }
 };
