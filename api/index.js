@@ -1,10 +1,10 @@
-import express from 'express';
+import express from "express";
 
-import { contests } from '../src/testData';
+import { contests } from "../src/testData";
 
 const router = express.Router();
 
-router.get('/contests', (req, res) => {
+router.get("/contests", (req, res) => {
   res.send({ contests });
 });
 

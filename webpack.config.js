@@ -1,8 +1,8 @@
 module.exports = {
-  entry: './src/index.js',
+  entry: "./src/index.js",
   output: {
-    path: __dirname + '/public',
-    filename: 'bundle.js'
+    path: __dirname + "/public",
+    filename: "bundle.js"
   },
   module: {
     rules: [
@@ -23,7 +23,7 @@ module.exports = {
         exclude: /node_modules/,
         type: "javascript/auto",
         use: {
-          loader: "json-loader",
+          loader: "json-loader"
         }
       }
     ]
