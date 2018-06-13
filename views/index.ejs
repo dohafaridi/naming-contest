@@ -1,5 +1,10 @@
 <%- include header %>
   <div id="root">
-    <%- content %>
+    <div>
+        <%- initialMarkup %>
+    </div>
   </div>
+  <script type="text/javascript">
+    window.initialData = <%- JSON.stringify(initialData); %>
+  </script>
   <%- include footer %>
