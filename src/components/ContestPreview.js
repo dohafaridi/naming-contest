@@ -1,15 +1,30 @@
-import React from "react";
-import PropTypes from "prop-types";
+import React from 'react';
+import PropTypes from 'prop-types';
 
-const contestPreview = ({ contest }) => (
-  <div className="contestPreview">
-    <div className="contestPreview__name">{contest.contestName}</div>
-    <div className="contestPreview__category">{contest.categoryName}</div>
-  </div>
-);
+class contestPreview extends React.Component {
+  constructor(props) {
+    super(props);
+    this.handleClick = this.handleClick.bind(this);
+  }
 
-contestPreview.prototype = {
-  contest: PropTypes.object
+  handleClick() {
+    this.props.handleContestClick(this.props.contest);
+  }
+
+  render() {
+    const { contestName, categoryName } = this.props.contest;
+    return (
+      <div className="contestPreview" onClick={this.handleClick}>
+        <div className="contestPreview__name">{contestName}</div>
+        <div className="contestPreview__category">{categoryName}</div>
+      </div>
+    );
+  }
+}
+
+contestPreview.propTypes = {
+  contest: PropTypes.object,
+  handleContestClick: PropTypes.func,
 };
 
 export default contestPreview;
